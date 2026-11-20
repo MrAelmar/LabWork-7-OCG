@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix — комплектующие и ремонт ПК и ноутбуков</title>
+    <meta name="description" content="Продажа комплектующих для ПК и ноутбуков, профессиональный ремонт техники. Выезд мастера на дом.">
+    <meta name="theme-color" content="#04090a">
+    <link rel="icon" type="image/png" href="free-icon-computer-science-9325728.png">
+    <link rel="apple-touch-icon" href="free-icon-computer-science-9325728.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#home" class="logo">Tech<span>Fix</span></a>
+            <ul class="nav-list">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#components">Комплектующие</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <button type="button" class="cart-toggle" id="cartToggle" aria-label="Открыть корзину" aria-controls="cartPanel" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/>
+                    <circle cx="10" cy="20" r="1.4"/>
+                    <circle cx="18" cy="20" r="1.4"/>
+                </svg>
+                <span class="cart-toggle-text">Корзина</span>
+                <span class="cart-count is-empty" id="cartCount">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ГЛАВНАЯ -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-badge">Мастерская + магазин комплектующих</p>
+            <h1>Комплектующие для ПК и ноутбуков и ремонт без переплат</h1>
+            <p>Подбираем детали под вашу задачу: апгрейд, восстановление после поломки или сборка с нуля. В наличии процессоры, видеокарты, память, SSD, блоки питания и охлаждение. Диагностика — бесплатно, установка — от 30 минут.</p>
+            <div class="hero-actions">
+                <a href="#components" class="btn">Смотреть комплектующие</a>
+                <a href="#contacts" class="btn btn-ghost">Оставить заявку</a>
+            </div>
+        </div>
+
+        <!-- Кликабельная иллюстрация компьютера: при наведении светится, при нажатии ведёт к карточкам -->
+        <a href="#components" class="pc-hero" id="pcHero" aria-label="Перейти к карточкам комплектующих">
+            <svg class="pc-hero-art" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <defs>
+                    <linearGradient id="caseGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#0f6b6d"/>
+                        <stop offset="1" stop-color="#05292b"/>
+                    </linearGradient>
+                    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#0b4a4d"/>
+                        <stop offset="1" stop-color="#041012"/>
+                    </linearGradient>
+                    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#7fffe0"/>
+                        <stop offset="1" stop-color="#2ee6c8"/>
+                    </linearGradient>
+                    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0" stop-color="#2ee6c8" stop-opacity="0.45"/>
+                        <stop offset="1" stop-color="#2ee6c8" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+
+                <circle cx="210" cy="140" r="160" fill="url(#glowGrad)"/>
+                <ellipse cx="210" cy="286" rx="180" ry="10" fill="#2ee6c8" opacity="0.12"/>
+
+                <!-- Монитор -->
+                <rect x="36" y="34" width="246" height="156" rx="12" fill="url(#caseGrad)" stroke="#2ee6c8" stroke-opacity="0.55" stroke-width="2"/>
+                <rect x="48" y="46" width="222" height="126" rx="7" fill="url(#screenGrad)" stroke="#7fffe0" stroke-opacity="0.7" stroke-width="1.5"/>
+
+                <!-- Содержимое экрана: плата и дорожки -->
+                <rect x="96" y="82" width="56" height="44" rx="5" fill="#041012" stroke="url(#accentGrad)" stroke-width="2"/>
+                <rect x="112" y="96" width="24" height="16" rx="2" fill="#2ee6c8" opacity="0.65"/>
+                <path d="M96 96H64M96 112H64M152 96h32M152 112h32M124 82V62M124 126v22"
+                      stroke="#2ee6c8" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="64" cy="96" r="3" fill="#7fffe0"/>
+                <circle cx="64" cy="112" r="3" fill="#7fffe0"/>
+                <circle cx="184" cy="96" r="3" fill="#7fffe0"/>
+                <circle cx="184" cy="112" r="3" fill="#7fffe0"/>
+                <circle cx="124" cy="62" r="3" fill="#7fffe0"/>
+                <circle cx="124" cy="148" r="3" fill="#7fffe0"/>
+
+                <!-- Подставка -->
+                <rect x="143" y="190" width="32" height="24" fill="#0b4a4d"/>
+                <rect x="104" y="212" width="110" height="9" rx="4.5" fill="#0f6b6d" stroke="#2ee6c8" stroke-opacity="0.35"/>
+
+                <!-- Системный блок -->
+                <rect x="304" y="52" width="86" height="184" rx="12" fill="url(#caseGrad)" stroke="#2ee6c8" stroke-opacity="0.55" stroke-width="2"/>
+                <rect x="314" y="66" width="66" height="156" rx="8" fill="#041012" opacity="0.55"/>
+
+                <!-- Вентиляторы (вращаются при наведении) -->
+                <g class="pc-fan" style="transform-origin: 347px 106px">
+                    <circle cx="347" cy="106" r="23" fill="none" stroke="#2ee6c8" stroke-opacity="0.7" stroke-width="2"/>
+                    <circle cx="347" cy="106" r="6" fill="#2ee6c8"/>
+                    <path d="M347 100V85M353 109l13 8M341 109l-13 8" stroke="#7fffe0" stroke-width="3" stroke-linecap="round"/>
+                </g>
+                <g class="pc-fan pc-fan--slow" style="transform-origin: 347px 172px">
+                    <circle cx="347" cy="172" r="23" fill="none" stroke="#2ee6c8" stroke-opacity="0.7" stroke-width="2"/>
+                    <circle cx="347" cy="172" r="6" fill="#2ee6c8"/>
+                    <path d="M347 166v-15M353 175l13 8M341 175l-13 8" stroke="#7fffe0" stroke-width="3" stroke-linecap="round"/>
+                </g>
+
+                <!-- Кнопка питания и индикатор -->
+                <circle cx="347" cy="218" r="7" fill="none" stroke="#7fffe0" stroke-width="2"/>
+                <path d="M347 213v5" stroke="#7fffe0" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="326" cy="218" r="3" fill="#2ee6c8"/>
+
+                <!-- Клавиатура и мышь -->
+                <rect x="56" y="240" width="176" height="20" rx="7" fill="#0b4a4d" stroke="#2ee6c8" stroke-opacity="0.5"/>
+                <path d="M74 247h2M88 247h2M102 247h2M116 247h2M130 247h2M144 247h2M158 247h2M172 247h2M186 247h2M200 247h2M210 247h2"
+                      stroke="#7fffe0" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M82 253h120" stroke="#2ee6c8" stroke-opacity="0.55" stroke-width="2.4" stroke-linecap="round"/>
+                <ellipse cx="262" cy="250" rx="14" ry="19" fill="#0b4a4d" stroke="#2ee6c8" stroke-opacity="0.6" stroke-width="2"/>
+                <path d="M262 238v8" stroke="#7fffe0" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="pc-hint">Наведите — компьютер засветится. Нажмите — откроется каталог комплектующих.</span>
+        </a>
+    </section>
+
+    <!-- КРАТКИЕ ПРЕИМУЩЕСТВА -->
+    <section class="stats" aria-label="Кратко о мастерской">
+        <div class="stat">
+            <strong>8 лет</strong>
+            <span>работаем с техникой</span>
+        </div>
+        <div class="stat">
+            <strong>1200+</strong>
+            <span>ремонтов и апгрейдов</span>
+        </div>
+        <div class="stat">
+            <strong>12 мес</strong>
+            <span>гарантия на детали</span>
+        </div>
+        <div class="stat">
+            <strong>48 ч</strong>
+            <span>доставка под заказ</span>
+        </div>
+    </section>
+
+    <!-- КОМПЛЕКТУЮЩИЕ -->
+    <section id="components" class="components">
+        <h2>Комплектующие для ПК и ноутбуков</h2>
+        <p class="section-lead">
+            Всё для апгрейда и ремонта в одном месте: проверенные детали с гарантией, честные характеристики
+            и помощь в подборе. Не уверены, что подойдёт? Напишите модель техники — подберём совместимый вариант
+            и подскажем, что даст максимальный прирост производительности.
+        </p>
+
+        <div class="components-grid" id="componentsGrid">
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="6" y="6" width="12" height="12" rx="2"/>
+                        <rect x="9.5" y="9.5" width="5" height="5" rx="1"/>
+                        <path d="M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3"/>
+                    </svg>
+                </div>
+                <span class="card-badge">Хит</span>
+                <h3>Процессор Intel Core i5</h3>
+                <p class="card-desc">6 ядер для работы, учёбы и игр. Заметный апгрейд без замены платы.</p>
+                <ul class="card-specs">
+                    <li>6 ядер / 12 потоков</li>
+                    <li>Сокет LGA1700</li>
+                    <li>До 4,6 ГГц</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">12 900 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Процессор Intel Core i5" data-price="12900">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="2.5" y="7" width="19" height="10" rx="2"/>
+                        <circle cx="8" cy="12" r="2.5"/>
+                        <circle cx="16" cy="12" r="2.5"/>
+                        <path d="M12 17v3"/>
+                    </svg>
+                </div>
+                <span class="card-badge">Игры</span>
+                <h3>Видеокарта GeForce RTX</h3>
+                <p class="card-desc">Стабильные 100+ FPS в современных проектах и тихое охлаждение.</p>
+                <ul class="card-specs">
+                    <li>8 ГБ GDDR6</li>
+                    <li>DLSS и трассировка</li>
+                    <li>2 вентилятора</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">34 500 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Видеокарта GeForce RTX" data-price="34500">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="2.5" y="8" width="19" height="8" rx="1.5"/>
+                        <path d="M6 8v3M10 8v3M14 8v3M18 8v3M5 16v2M9 16v2M13 16v2M17 16v2"/>
+                    </svg>
+                </div>
+                <h3>Оперативная память DDR4</h3>
+                <p class="card-desc">Убирает «тормоза» при десятках вкладок и тяжёлых программах.</p>
+                <ul class="card-specs">
+                    <li>16 ГБ (2×8 ГБ)</li>
+                    <li>3200 МГц</li>
+                    <li>Радиаторы в комплекте</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">4 200 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Оперативная память DDR4" data-price="4200">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="3" y="6" width="18" height="12" rx="2"/>
+                        <path d="M7 10h4M7 14h7"/>
+                        <circle cx="17.5" cy="10" r="1"/>
+                    </svg>
+                </div>
+                <span class="card-badge">Хит</span>
+                <h3>SSD-накопитель NVMe</h3>
+                <p class="card-desc">Система загружается за 8 секунд, а игры и проекты открываются мгновенно.</p>
+                <ul class="card-specs">
+                    <li>1 ТБ</li>
+                    <li>Чтение до 3500 МБ/с</li>
+                    <li>Формат M.2</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">6 700 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="SSD-накопитель NVMe" data-price="6700">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="2.5" y="6" width="19" height="12" rx="2"/>
+                        <circle cx="8" cy="12" r="3"/>
+                        <path d="M16 10h3M16 14h3"/>
+                    </svg>
+                </div>
+                <h3>Блок питания 650 Вт</h3>
+                <p class="card-desc">Запас мощности для видеокарты и тихая работа под нагрузкой.</p>
+                <ul class="card-specs">
+                    <li>80 PLUS Bronze</li>
+                    <li>Защита от скачков</li>
+                    <li>Модульные кабели</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">5 400 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Блок питания 650 Вт" data-price="5400">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="9"/>
+                        <circle cx="12" cy="12" r="2"/>
+                        <path d="M12 10V4.5M14 13l4.5 2.5M10 13l-4.5 2.5"/>
+                    </svg>
+                </div>
+                <h3>Башенный кулер</h3>
+                <p class="card-desc">Снижает температуру процессора на 20–25 °C и уровень шума.</p>
+                <ul class="card-specs">
+                    <li>4 тепловые трубки</li>
+                    <li>Вентилятор 120 мм</li>
+                    <li>Крепления в комплекте</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">2 900 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Башенный кулер" data-price="2900">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="2.5" y="7" width="17" height="10" rx="2"/>
+                        <path d="M21.5 10v4"/>
+                        <path d="M6 11v2M9 11v2M12 11v2"/>
+                    </svg>
+                </div>
+                <span class="card-badge">Ноутбуки</span>
+                <h3>Аккумулятор для ноутбука</h3>
+                <p class="card-desc">Возвращает автономность: 4–6 часов работы без розетки.</p>
+                <ul class="card-specs">
+                    <li>Ёмкость 4400 мА·ч</li>
+                    <li>Литий-ионный</li>
+                    <li>Подбор по модели</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">3 800 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Аккумулятор для ноутбука" data-price="3800">В корзину</button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                        <rect x="2" y="7" width="20" height="10" rx="2"/>
+                        <path d="M5 10h.01M8 10h.01M11 10h.01M14 10h.01M17 10h.01M6 13h12"/>
+                    </svg>
+                </div>
+                <span class="card-badge">Ноутбуки</span>
+                <h3>Клавиатура для ноутбука</h3>
+                <p class="card-desc">Замена залитой или стёртой клавиатуры с подсветкой.</p>
+                <ul class="card-specs">
+                    <li>Русская раскладка</li>
+                    <li>Подсветка</li>
+                    <li>Установка в мастерской</li>
+                </ul>
+                <div class="card-footer">
+                    <span class="price">2 400 ₽</span>
+                    <button type="button" class="card-btn add-to-cart" data-name="Клавиатура для ноутбука" data-price="2400">В корзину</button>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="components-note">
+            Цены указаны за деталь без учёта установки. Подберём совместимый вариант по модели вашего ПК или ноутбука,
+            проверим работоспособность при вас и оформим гарантию на 12 месяцев.
+        </p>
+        <p class="retail-note">В розничном магазине выбор комплектующих больше: часть моделей есть только на витрине.</p>
+    </section>
+
+    <!-- О НАС -->
+    <section id="about" class="about">
+        <h2>О нас</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Мы — локальная мастерская, которая совмещает сервис и магазин комплектующих. За несколько лет мы починили сотни ноутбуков и системных блоков: от замены термопасты и чистки от пыли до восстановления после залития и замены материнских плат.</p>
+                <p>Все детали мы проверяем перед продажей и не предлагаем «лишнего»: сначала диагностика, затем понятный список того, что действительно нужно заменить. Мастер может работать у вас дома — удобно, если техника тяжёлая или нет времени ехать в сервис.</p>
+                <p>Продаём оперативную память, SSD, блоки питания, кулеры, аккумуляторы и клавиатуры для ноутбуков. Работаем с юридическими лицами и помогаем с подбором партии комплектующих.</p>
+            </div>
+            <div class="about-photo">
+                <img src="computer-repair.png" alt="Мастер TechFix за работой: ремонт компьютера" loading="lazy">
+                <p class="photo-caption">Фото: наш мастер за работой</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section id="gallery" class="gallery">
+        <h2>Галерея работ</h2>
+        <div class="gallery-grid">
+            <img src="chistka-noutbukov.jpg" alt="Чистка ноутбука от пыли в мастерской TechFix" loading="lazy">
+            <img src="remont-materinskoj-platy-diagnostika.png" alt="Диагностика и ремонт материнской платы" loading="lazy">
+            <img src="hyperpc-upgade-center-thermo-interface-content-01.jpg" alt="Апгрейд системы охлаждения компьютера" loading="lazy">
+            <img src="430_1615904599-630x315.jpg" alt="Ремонт системного блока" loading="lazy">
+            <img src="banner1.jpg" alt="Сборка и обслуживание компьютерной техники" loading="lazy">
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ + ФОРМА -->
+    <section id="contacts" class="contacts">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <p><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                <p><strong>Email:</strong> <a href="mailto:example@mail.ru">example@mail.ru</a></p>
+                <p><strong>Адрес:</strong> г. Ваш город, ул. Примерная, д. 1</p>
+                <p><strong>Режим работы:</strong> Пн–Сб, 09:00–20:00</p>
+                <p>Выезд мастера на дом — по договорённости. Наличие конкретной детали уточняйте по телефону: часть комплектующих привозим под заказ за 48 часов.</p>
+
+                <!-- QR-код для перехода на сайт (замените URL на реальный после хостинга) -->
+                <div class="qr-block">
+                    <p>Отсканируйте, чтобы открыть сайт:</p>
+                    <img src="images/qr-code.png" alt="QR-код сайта" width="140" height="140" onerror="this.closest('.qr-block').hidden = true">
+                </div>
+            </div>
+
+            <form class="contact-form" id="feedbackForm" novalidate>
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="message">Сообщение</label>
+                <textarea id="message" name="message" rows="5" placeholder="Опишите проблему или какую деталь нужно подобрать" required></textarea>
+
+                <button type="submit" class="btn">Отправить</button>
+                <p class="form-status" id="formStatus" role="status"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- КОРЗИНА -->
+    <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+    <aside class="cart-panel" id="cartPanel" aria-labelledby="cartTitle" aria-hidden="true">
+        <div class="cart-header">
+            <h2 class="cart-title" id="cartTitle">Корзина</h2>
+            <button type="button" class="cart-close" id="cartClose" aria-label="Закрыть корзину">&times;</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Пока пусто. Добавьте комплектующие из каталога — количество можно менять кнопками «−» и «+».</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого</span>
+                <strong id="cartTotal">0 ₽</strong>
+            </div>
+            <button type="button" class="btn cart-checkout" id="cartCheckout">Оформить заказ</button>
+            <button type="button" class="cart-clear" id="cartClear">Очистить корзину</button>
+            <p class="cart-status" id="cartStatus" role="status"></p>
+            <p class="cart-note">В розничном магазине выбор комплектующих больше: часть моделей есть только на витрине.</p>
+        </div>
+    </aside>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="footer-copyright" id="footerCopyright">&copy; 2026 TechFix. Все права защищены.</p>
+                <p class="footer-slogan">
+                    <span class="footer-slogan-text">Магазин комплектующих и сервисный центр: продаём, ремонтируем и продлеваем жизнь вашей технике.</span>
+                    <button type="button" class="footer-wink" id="footerWink" aria-label="Подмигнуть и скопировать копирайт сайта" title="Нажмите — подмигну и скопирую копирайт">
+                        <span class="footer-wink-face" id="footerWinkFace" aria-hidden="true">😊</span>
+                    </button>
+                    <span class="footer-wink-status" id="footerWinkStatus" role="status" aria-live="polite"></span>
+                </p>
+            </div>
+            <div class="socials">
+                <a href="https://t.me/yourchannel" target="_blank" rel="noopener" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M9.04 15.5l-.38 5.4c.54 0 .78-.24 1.06-.52l2.54-2.44 5.27 3.87c.96.53 1.65.25 1.9-.89l3.44-16.16c.3-1.4-.5-1.95-1.42-1.6L1.6 9.9c-1.38.54-1.36 1.3-.24 1.65l4.7 1.47L17.1 6.2c.52-.34.99-.15.6.19L9.04 15.5z"/></svg>
+                </a>
+                <a href="https://vk.com/yourgroup" target="_blank" rel="noopener" aria-label="VK">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M13.16 18.3c-5.83 0-9.16-4-9.29-10.65h2.92c.09 4.88 2.25 6.95 3.96 7.38V7.65h2.75v4.22c1.69-.18 3.47-2.1 4.07-4.22h2.75c-.46 2.6-2.38 4.52-3.75 5.31 1.37.64 3.55 2.31 4.38 5.34h-3.03c-.65-2-2.27-3.55-4.42-3.76v3.76h-.34z"/></svg>
+                </a>
+                <a href="https://wa.me/79991234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.1-.5l-.7-1.6c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3 3 3 0 00-1 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка по якорям
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const id = link.getAttribute('href');
+                const target = document.querySelector(id);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Клик по компьютеру: подсветка карточек комплектующих
+        const pcHero = document.getElementById('pcHero');
+        const componentCards = document.querySelectorAll('#componentsGrid .card');
+
+        function highlightCards() {
+            componentCards.forEach((card, index) => {
+                card.classList.remove('is-highlighted');
+                void card.offsetWidth; // перезапуск анимации
+                card.style.animationDelay = (index * 70) + 'ms';
+                card.classList.add('is-highlighted');
+                setTimeout(() => {
+                    card.classList.remove('is-highlighted');
+                    card.style.animationDelay = '';
+                }, 1500 + index * 70);
+            });
+        }
+
+        if (pcHero) {
+            pcHero.addEventListener('click', () => {
+                pcHero.classList.add('is-active');
+                setTimeout(() => pcHero.classList.remove('is-active'), 700);
+                setTimeout(highlightCards, 400);
+            });
+        }
+
+        // Валидация формы
+        const form = document.getElementById('feedbackForm');
+        const status = document.getElementById('formStatus');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // form.elements надёжнее: свойство name есть у самой формы
+            const name = form.elements.name.value.trim();
+            const email = form.elements.email.value.trim();
+            const message = form.elements.message.value.trim();
+
+            status.classList.remove('is-error', 'is-success');
+
+            if (!name || !email || !message) {
+                status.textContent = 'Пожалуйста, заполните все поля.';
+                status.classList.add('is-error');
+                return;
+            }
+            if (!email.includes('@')) {
+                status.textContent = 'Введите корректный email (должен содержать @).';
+                status.classList.add('is-error');
+                return;
+            }
+            status.textContent = 'Спасибо! Ваша заявка отправлена (демо).';
+            status.classList.add('is-success');
+            form.reset();
+        });
+
+        // ================= КОРЗИНА =================
+        const CART_KEY = 'techfix-cart-v1';
+        const cartToggle = document.getElementById('cartToggle');
+        const cartPanel = document.getElementById('cartPanel');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartCloseBtn = document.getElementById('cartClose');
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartCountEl = document.getElementById('cartCount');
+        const cartTotalEl = document.getElementById('cartTotal');
+        const cartClearBtn = document.getElementById('cartClear');
+        const cartCheckoutBtn = document.getElementById('cartCheckout');
+        const cartStatusEl = document.getElementById('cartStatus');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        let cart = [];
+
+        const escapeHtml = value => String(value).replace(/[&<>"']/g, ch => ({
+            '&': '\x26amp;', '<': '\x26lt;', '>': '\x26gt;', '"': '\x26quot;', "'": '\x26#39;'
+        }[ch]));
+
+        const formatPrice = value => value.toLocaleString('ru-RU') + ' ₽';
+        const cartQuantity = () => cart.reduce((sum, item) => sum + item.qty, 0);
+        const cartSum = () => cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+        function loadCart() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+                if (!Array.isArray(saved)) return;
+                cart = saved
+                    .filter(item => item && typeof item.name === 'string' && Number.isFinite(item.price) && Number.isFinite(item.qty) && item.qty > 0)
+                    .map(item => ({ name: item.name, price: item.price, qty: Math.min(99, Math.floor(item.qty)) }));
+            } catch (error) {
+                cart = [];
+            }
+        }
+
+        function saveCart() {
+            try {
+                localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            } catch (error) {
+                /* localStorage может быть недоступен — корзина продолжит работать в памяти */
+            }
+        }
+
+        function renderCart() {
+            if (!cartItemsEl) return;
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p class="cart-empty">Пока пусто. Добавьте комплектующие из каталога — количество можно менять кнопками «−» и «+».</p>';
+            } else {
+                cartItemsEl.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">${escapeHtml(item.name)}</p>
+                            <p class="cart-item-price">${formatPrice(item.price)} за шт.</p>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button type="button" class="qty-btn" data-action="decrease" data-index="${index}" aria-label="Уменьшить количество: ${escapeHtml(item.name)}">−</button>
+                            <span class="qty-value">${item.qty}</span>
+                            <button type="button" class="qty-btn" data-action="increase" data-index="${index}" aria-label="Увеличить количество: ${escapeHtml(item.name)}">+</button>
+                        </div>
+                        <p class="cart-item-sum">${formatPrice(item.price * item.qty)}</p>
+                    </div>
+                `).join('');
+            }
+
+            if (cartCountEl) {
+                cartCountEl.textContent = cartQuantity();
+                cartCountEl.classList.toggle('is-empty', cart.length === 0);
+            }
+            if (cartTotalEl) cartTotalEl.textContent = formatPrice(cartSum());
+            if (cartClearBtn) cartClearBtn.disabled = cart.length === 0;
+            if (cartCheckoutBtn) cartCheckoutBtn.disabled = cart.length === 0;
+            if (cartStatusEl) {
+                cartStatusEl.textContent = '';
+                cartStatusEl.classList.remove('is-success', 'is-error');
+            }
+
+            saveCart();
+        }
+
+        function openCart() {
+            if (!cartPanel) return;
+            cartPanel.classList.add('is-open');
+            cartOverlay.classList.add('is-open');
+            cartPanel.setAttribute('aria-hidden', 'false');
+            cartToggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('cart-open');
+            if (cartCloseBtn) cartCloseBtn.focus();
+        }
+
+        function closeCart() {
+            if (!cartPanel) return;
+            cartPanel.classList.remove('is-open');
+            cartOverlay.classList.remove('is-open');
+            cartPanel.setAttribute('aria-hidden', 'true');
+            if (cartToggle) {
+                cartToggle.setAttribute('aria-expanded', 'false');
+                cartToggle.focus();
+            }
+            document.body.classList.remove('cart-open');
+        }
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.dataset.name;
+                const price = Number(button.dataset.price);
+                if (!name || !Number.isFinite(price)) return;
+
+                const existing = cart.find(item => item.name === name);
+                if (existing) {
+                    existing.qty = Math.min(99, existing.qty + 1);
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+                renderCart();
+
+                if (cartToggle) {
+                    cartToggle.classList.remove('is-bump');
+                    void cartToggle.offsetWidth;
+                    cartToggle.classList.add('is-bump');
+                    setTimeout(() => cartToggle.classList.remove('is-bump'), 500);
+                }
+
+                if (!button.dataset.label) button.dataset.label = button.textContent;
+                button.textContent = 'Добавлено ✓';
+                button.classList.add('is-added');
+                clearTimeout(button._addedTimer);
+                button._addedTimer = setTimeout(() => {
+                    button.textContent = button.dataset.label;
+                    button.classList.remove('is-added');
+                }, 1200);
+            });
+        });
+
+        if (cartItemsEl) {
+            cartItemsEl.addEventListener('click', event => {
+                const button = event.target.closest('.qty-btn');
+                if (!button) return;
+                const index = Number(button.dataset.index);
+                const item = cart[index];
+                if (!item) return;
+
+                if (button.dataset.action === 'increase') {
+                    item.qty = Math.min(99, item.qty + 1);
+                } else {
+                    item.qty -= 1;
+                    if (item.qty <= 0) cart.splice(index, 1);
+                }
+                renderCart();
+            });
+        }
+
+        if (cartToggle) {
+            cartToggle.addEventListener('click', () => {
+                if (cartPanel.classList.contains('is-open')) closeCart();
+                else openCart();
+            });
+        }
+        if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCart);
+        if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && cartPanel && cartPanel.classList.contains('is-open')) closeCart();
+        });
+
+        if (cartClearBtn) {
+            cartClearBtn.addEventListener('click', () => {
+                cart = [];
+                renderCart();
+                if (cartStatusEl) {
+                    cartStatusEl.textContent = 'Корзина очищена.';
+                    cartStatusEl.classList.add('is-success');
+                }
+            });
+        }
+
+        if (cartCheckoutBtn) {
+            cartCheckoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) return;
+                cart = [];
+                renderCart();
+                if (cartStatusEl) {
+                    cartStatusEl.textContent = 'Заказ оформлен (демо). Мы свяжемся с вами для подтверждения.';
+                    cartStatusEl.classList.add('is-success');
+                }
+            });
+        }
+
+        loadCart();
+        renderCart();
+
+        // ================= ЖЁЛТАЯ «ИСКОРКА» =================
+        // Через 10 секунд бездействия по экрану пролетает жёлтая искорка
+        // по ломаной, но плавной траектории и подсказывает фразы пользователю.
+        (function () {
+            const IDLE_DELAY = 10000;        // 10 секунд бездействия
+            const FLIGHT_DURATION = 7000;    // длительность полёта искорки
+            const PHRASES = [
+                'Нужна помощь с выбором комплектующих?',
+                'Не уверены, что деталь подойдёт? Напишите нам!',
+                'Диагностика — бесплатно, установка — от 30 минут.',
+                'Гарантия 12 месяцев на все детали.',
+                'Выезд мастера на дом — по договорённости.',
+                'Апгрейд под ваш бюджет — подберём вместе!'
+            ];
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let phraseIndex = 0;
+            let idleTimer = null;
+            let sparkRunning = false;
+            let lastActivity = 0;
+
+            // Ломаная, но плавная траектория: зигзаг из кубических кривых
+            function buildPath() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const padX = Math.min(170, Math.max(60, w * 0.14));
+                const startX = padX;
+                const endX = Math.max(startX + 80, w - padX);
+                const stepX = (endX - startX) / 4;
+                const startY = h * 0.86;
+                const topY = h * 0.2;
+                const bottomY = h * 0.72;
+
+                let d = `M ${startX.toFixed(1)} ${startY.toFixed(1)}`;
+                let prevX = startX;
+                let prevY = startY;
+
+                for (let i = 1; i <= 4; i++) {
+                    const x = startX + stepX * i;
+                    const y = i % 2 === 1 ? topY : bottomY;
+                    const c1x = prevX + stepX * 0.6;
+                    const c2x = x - stepX * 0.6;
+                    d += ` C ${c1x.toFixed(1)} ${prevY.toFixed(1)}, ${c2x.toFixed(1)} ${y.toFixed(1)}, ${x.toFixed(1)} ${y.toFixed(1)}`;
+                    prevX = x;
+                    prevY = y;
+                }
+                return d;
+            }
+
+            // Невидимый SVG нужен только для расчёта точек на траектории
+            function createPathMeter(d) {
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('aria-hidden', 'true');
+                svg.style.cssText = 'position:absolute;left:-9999px;top:0;width:0;height:0;visibility:hidden;';
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', d);
+                svg.appendChild(path);
+                document.body.appendChild(svg);
+
+                return {
+                    total: path.getTotalLength(),
+                    pointAt: length => path.getPointAtLength(length),
+                    dispose: () => svg.remove()
+                };
+            }
+
+            // Пузырь с фразой держится рядом с искоркой и не выходит за края экрана
+            function placeBubble(point, bubble) {
+                const bw = bubble.offsetWidth;
+                const bh = bubble.offsetHeight;
+                const half = bw / 2;
+                const cx = Math.min(Math.max(point.x, half + 12), window.innerWidth - half - 12);
+
+                let top;
+                if (point.y - bh - 26 > 8) {
+                    top = point.y - bh - 26;
+                    bubble.classList.remove('is-below');
+                } else {
+                    top = point.y + 26;
+                    bubble.classList.add('is-below');
+                }
+                bubble.style.transform = `translate(${(cx - half).toFixed(1)}px, ${top.toFixed(1)}px)`;
+            }
+
+            function nextPhrase() {
+                const phrase = PHRASES[phraseIndex % PHRASES.length];
+                phraseIndex++;
+                return phrase;
+            }
+
+            // Вариант без движения — для пользователей с настройкой «уменьшить движение»
+            function showStaticBubble(phrase) {
+                const layer = document.createElement('div');
+                layer.className = 'spark-fx';
+
+                const bubble = document.createElement('div');
+                bubble.className = 'spark-bubble is-static';
+                bubble.textContent = phrase;
+                layer.appendChild(bubble);
+                document.body.appendChild(layer);
+
+                requestAnimationFrame(() => bubble.classList.add('is-visible'));
+
+                setTimeout(() => {
+                    bubble.classList.remove('is-visible');
+                    setTimeout(() => {
+                        layer.remove();
+                        sparkRunning = false;
+                        scheduleSpark();
+                    }, 400);
+                }, 5000);
+            }
+
+            function launchSpark() {
+                if (sparkRunning || document.hidden) {
+                    scheduleSpark();
+                    return;
+                }
+                sparkRunning = true;
+
+                const phrase = nextPhrase();
+
+                if (reducedMotion.matches) {
+                    showStaticBubble(phrase);
+                    return;
+                }
+
+                const meter = createPathMeter(buildPath());
+
+                const layer = document.createElement('div');
+                layer.className = 'spark-fx';
+
+                const bubble = document.createElement('div');
+                bubble.className = 'spark-bubble';
+                bubble.textContent = phrase;
+
+                const core = document.createElement('span');
+                core.className = 'spark-core';
+
+                const trails = [];
+                for (let i = 0; i < 5; i++) {
+                    const trail = document.createElement('span');
+                    trail.className = 'spark-trail';
+                    trail.style.opacity = '0';
+                    trails.push(trail);
+                    layer.appendChild(trail);
+                }
+
+                layer.appendChild(core);
+                layer.appendChild(bubble);
+                document.body.appendChild(layer);
+
+                placeBubble(meter.pointAt(0), bubble);
+
+                const startedAt = performance.now();
+                let phraseChanged = false;
+
+                function frame(now) {
+                    const progress = Math.min(1, (now - startedAt) / FLIGHT_DURATION);
+                    // Плавное ускорение и торможение по краям траектории
+                    const eased = 0.5 - Math.cos(Math.PI * progress) / 2;
+
+                    const point = meter.pointAt(meter.total * eased);
+                    core.style.transform = `translate(${point.x.toFixed(1)}px, ${point.y.toFixed(1)}px)`;
+
+                    trails.forEach((trail, index) => {
+                        const trailProgress = Math.max(0, eased - (index + 1) * 0.02);
+                        const trailPoint = meter.pointAt(meter.total * trailProgress);
+                        const scale = Math.max(0.35, 1 - (index + 1) * 0.15);
+                        trail.style.transform = `translate(${trailPoint.x.toFixed(1)}px, ${trailPoint.y.toFixed(1)}px) scale(${scale.toFixed(2)})`;
+                        trail.style.opacity = String(Math.max(0, 0.8 - (index + 1) * 0.15) * Math.min(1, progress / 0.05));
+                    });
+
+                    placeBubble(point, bubble);
+
+                    if (progress > 0.03) bubble.classList.add('is-visible');
+                    if (progress > 0.5 && !phraseChanged) {
+                        phraseChanged = true;
+                        bubble.textContent = nextPhrase();
+                    }
+                    if (progress > 0.92) bubble.classList.remove('is-visible');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(frame);
+                    } else {
+                        finish();
+                    }
+                }
+
+                function finish() {
+                    bubble.classList.remove('is-visible');
+                    core.style.opacity = '0';
+                    trails.forEach(trail => { trail.style.opacity = '0'; });
+
+                    setTimeout(() => {
+                        layer.remove();
+                        meter.dispose();
+                        sparkRunning = false;
+                        scheduleSpark();
+                    }, 450);
+                }
+
+                requestAnimationFrame(frame);
+            }
+
+            function scheduleSpark() {
+                clearTimeout(idleTimer);
+                idleTimer = setTimeout(launchSpark, IDLE_DELAY);
+            }
+
+            function onActivity() {
+                const now = Date.now();
+                if (now - lastActivity < 500) return; // не перезапускаем таймер слишком часто
+                lastActivity = now;
+                scheduleSpark();
+            }
+
+            ['mousemove', 'mousedown', 'pointerdown', 'keydown', 'scroll', 'wheel', 'touchstart']
+                .forEach(eventName => window.addEventListener(eventName, onActivity, { passive: true }));
+
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) scheduleSpark();
+            });
+
+            scheduleSpark();
+        })();
+
+        // ================= СМАЙЛИК В ФУТЕРЕ: ПОДМИГНУТЬ И СКОПИРОВАТЬ КОПИРАЙТ =================
+        const winkButton = document.getElementById('footerWink');
+        const winkFace = document.getElementById('footerWinkFace');
+        const winkStatus = document.getElementById('footerWinkStatus');
+        const copyrightEl = document.getElementById('footerCopyright');
+
+        // Копирование с запасным вариантом для страниц, открытых не по https
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            }
+            return new Promise((resolve, reject) => {
+                const field = document.createElement('textarea');
+                field.value = text;
+                field.setAttribute('readonly', '');
+                field.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+                document.body.appendChild(field);
+                field.select();
+                let copied = false;
+                try {
+                    copied = document.execCommand('copy');
+                } catch (error) {
+                    copied = false;
+                }
+                field.remove();
+                copied ? resolve() : reject(new Error('copy-failed'));
+            });
+        }
+
+        if (winkButton && winkFace && copyrightEl) {
+            winkButton.addEventListener('click', () => {
+                const copyrightText = copyrightEl.textContent.trim();
+
+                copyToClipboard(copyrightText)
+                    .then(() => {
+                        if (winkStatus) winkStatus.textContent = 'Копирайт скопирован';
+                    })
+                    .catch(() => {
+                        if (winkStatus) winkStatus.textContent = 'Не удалось скопировать';
+                    });
+
+                // Подмигивание: меняем эмодзи и запускаем анимацию
+                winkFace.textContent = '😉';
+                winkButton.classList.remove('is-winking');
+                void winkButton.offsetWidth; // перезапуск анимации
+                winkButton.classList.add('is-winking');
+
+                clearTimeout(winkButton._winkTimer);
+                winkButton._winkTimer = setTimeout(() => {
+                    winkButton.classList.remove('is-winking');
+                    winkFace.textContent = '😊';
+                    if (winkStatus) winkStatus.textContent = '';
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>
